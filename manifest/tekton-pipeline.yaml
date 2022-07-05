@@ -123,6 +123,7 @@ spec:
         value: $(workspaces.output.path)
       script: |
         CHECKOUT_DIR="${WORKSPACE_OUTPUT_PATH}/${PARAM_SUBDIRECTORY}"
+        echo "Git clone init...";
         cleandir() {
           # Delete any existing contents of the repo directory if it exists.
           #

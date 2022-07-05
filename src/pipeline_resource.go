@@ -30,11 +30,11 @@ func SetupPipeLineResources() *[]v1alpha1.PipelineResource {
 				Params: []v1alpha1.ResourceParam{
 					{
 						Name:  "revision",
-						Value: "master",
+						Value: "main",
 					},
 					{
 						Name:  "url",
-						Value: "https://github.com/SrijalKarmacharya/node-chat.git",
+						Value: "https://github.com/babulalt/go-websocket.git",
 					},
 				},
 			},
@@ -52,7 +52,7 @@ func SetupPipeLineResources() *[]v1alpha1.PipelineResource {
 				Params: []v1alpha1.ResourceParam{
 					{
 						Name:  "url",
-						Value: "sugamdocker35/babulal-chat:latest",
+						Value: "sugamdocker35/golang-app:v2",
 					},
 				},
 			},

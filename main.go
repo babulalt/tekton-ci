@@ -12,7 +12,8 @@ func main() {
 	if err != nil {
 		log.Printf("error in create client :: %v", err)
 	}
-	CloneAndBuild(clinet, "tekton-app")
+	_, err = clinet.CreateSecrets()
+	// CloneAndBuild(clinet, "golang-appv2")
 }
 
 func CloneAndBuild(clinet *src.Clients, namespace string) error {

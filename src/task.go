@@ -68,7 +68,7 @@ func Setuptask() *beta1.Task {
 						},
 					},
 					Command: []string{"/kaniko/executor"},
-					Args:    []string{"--dockerfile=/workspace/git-repo/Dockerfile", "--destination=sugamdocker35/babulal-chat:latest", "--context=/workspace/git-repo/"},
+					Args:    []string{"--dockerfile=/workspace/git-repo/Dockerfile", "--destination=sugamdocker35/golang-app:v2", "--context=/workspace/git-repo/"},
 					VolumeMounts: []corev1.VolumeMount{
 						{
 							Name:      "docker-config",
