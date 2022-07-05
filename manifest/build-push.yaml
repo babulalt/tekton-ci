@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
-  name: build-docker-image
+  name: build-push-docker-image
 spec:
   workspaces:
     - name: output
