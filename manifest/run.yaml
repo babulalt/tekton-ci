@@ -2,7 +2,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
-  name: tekton-pipeline
+  name: golang-test-pipeline
 spec:
   workspaces:
     - name: shared-workspace
@@ -22,11 +22,22 @@ spec:
           value: ""
         - name: deleteExisting
           value: "true"
+    - name: golangci-lint
+      taskRef:
+        name: golangci-lint
+      runAfter:
+        - fetch-repository
+      workspaces:
+        - name: output
+          workspace: shared-workspace
+      params:
+        - name: package
+          value: simple-go
     - name: build-push
       taskRef:
         name: build-push-docker-image
       runAfter:
-        - fetch-repository
+        - golangci-lint
       workspaces:
         - name: output
           workspace: shared-workspace
@@ -34,10 +45,10 @@ spec:
 apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
-  name: tekton-pipeline-run
+  name: golang-test-pipeline-run
 spec:
   pipelineRef:
-    name: tekton-pipeline
+    name: golang-test-pipeline
   workspaces:
     - name: shared-workspace
       persistentvolumeclaim:
