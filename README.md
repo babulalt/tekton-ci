@@ -34,7 +34,9 @@
 ## **Create Task CRD tekton-ci**
     ***Run the following command to create task such as git-clone and build-push image***
    kubectl apply -f https://github.com/babulalt/tekton-ci/blob/main/manifest/git-clone.yaml -n tekon-ci
+
    kubectl apply -f https://github.com/babulalt/tekton-ci/blob/main/manifest/g0-lint.yaml -n tekon-ci
+   
    kubectl apply -f https://github.com/babulalt/tekton-ci/blob/main/manifest/build-push.yaml -n tekon-ci
 
 ## **Create Pipeline and Pipeline Run CRD tekton-ci**
